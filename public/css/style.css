@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links, 
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* cards */
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card Effect */
+.listing-card {
+    position: relative; /* make overlay relative to this card */
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.2); /* light overlay effect */
+    pointer-events: none; /* clicks pass through overlay */
+}
+
+.listing-card:hover .card-img-overlay {
+    opacity: 1; /* show overlay on hover of card */
+}
+
+/* New Page */
+
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* edit Page */
+.add-btn, .edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+
+}
+
+.show-card {
+    padding-left: 0;
+       padding-right: 0;
+}
+
+/* Map Style */
+#map {
+    height: 400px; 
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#map:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+/* Index Page Responsive Styles */
+#filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Add margin-top for all screen sizes */
+.container-fluid.px-2.px-md-3.px-lg-4 {
+    margin-top: 1rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+
+.filter:hover {
+    opacity: 1;
+    background-color: rgba(254, 66, 77, 0.1);
+    transform: translateY(-1px);
+}
+
+.filter p {
+    font-size: 0.7rem;
+    margin: 0.25rem 0 0 0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.filter i {
+    font-size: 1rem;
+    color: #fe424d;
+    margin-bottom: 0.1rem;
+}
+
+.tax-info {
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: fit-content;
+}
+
+.tax-toggle .form-check-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Mobile Filter Styles - Updated for scroll wrapper */
+
+.tax-toggle-mobile {
+    display: flex;
+    align-items: center;
+}
+
+.tax-toggle-mobile .form-check-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.tax-toggle-mobile .form-check-input {
+    transform: scale(0.8);
+}
+
+/* Responsive Design */
+/* Large screens (1200px and up) - Desktop */
+@media (min-width: 1200px) {
+    .filter {
+        min-width: 80px;
+        padding: 0.7rem 1rem;
+    }
+    
+    .filter i {
+        font-size: 1.2rem;
+    }
+    
+    .filter p {
+        font-size: 0.8rem;
+    }
+    
+    .tax-toggle .form-check-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Medium screens (768px to 1199px) - Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .filter {
+        min-width: 70px;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .filter i {
+        font-size: 1.1rem;
+    }
+    
+    .filter p {
+        font-size: 0.75rem;
+    }
+    
+    .tax-toggle .form-check-label {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small screens (576px to 767px) - Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+    .tax-toggle-mobile .form-check-label {
+        font-size: 0.7rem;
+    }
+    
+    .filters-scroll-container .filter {
+        min-width: 65px;
+        padding: 0.5rem 0.7rem;
+    }
+    
+    .filters-scroll-container .filter i {
+        font-size: 1rem;
+    }
+    
+    .filters-scroll-container .filter p {
+        font-size: 0.7rem;
+    }
+}
+
+/* Extra small screens (below 576px) - Mobile Portrait */
+@media (max-width: 575px) {
+    .tax-toggle-mobile .form-check-label {
+        font-size: 0.65rem;
+    }
+    
+    .filters-scroll-container .filter {
+        min-width: 60px;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .filters-scroll-container .filter i {
+        font-size: 0.9rem;
+    }
+    
+    .filters-scroll-container .filter p {
+        font-size: 0.65rem;
+    }
+    
+    .tax-toggle-mobile .form-check-input {
+        transform: scale(0.7);
+    }
+}
+
+/* Navbar Responsive Styles */
+/* Medium screens and below */
+@media (max-width: 991px) {
+    .navbar {
+        height: auto;
+        padding: 0.5rem 0;
+    }
+    
+    .search-input {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .search-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    .search-input {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.8rem;
+    }
+    
+    .search-btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 575px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .search-input {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
+    }
+    
+    .search-btn {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+/* Card Responsive Styles */
+/* Extra large screens (1400px+) - 4 cards with larger width */
+@media (min-width: 1400px) {
+    .card-img-top {
+        height: 22rem !important;
+    }
+    
+    .card-text {
+        font-size: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem !important;
+    }
+}
+
+/* Large screens (1200px-1399px) - 4 cards */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .card-img-top {
+        height: 20rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.95rem;
+    }
+    
+    .card-body {
+        padding: 0.9rem !important;
+    }
+}
+
+/* Medium screens (768px-1199px) - 3 cards */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .card-img-top {
+        height: 18rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+    
+    .card-body {
+        padding: 0.8rem !important;
+    }
+}
+
+/* Small screens (576px-767px) - 2 cards */
+@media (min-width: 576px) and (max-width: 767px) {
+    .card-img-top {
+        height: 16rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.85rem;
+    }
+    
+    .card-body {
+        padding: 0.75rem !important;
+    }
+}
+
+/* Extra small screens (below 576px) - 1 card full width */
+@media (max-width: 575px) {
+    .card-img-top {
+        height: 20rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+    
+    .card-body {
+        padding: 1rem !important;
+    }
+    
+    .listing-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Extra extra small screens (below 480px) - 1 card full width */
+@media (max-width: 480px) {
+    .card-img-top {
+        height: 18rem !important;
+    }
+    
+    .card-text {
+        font-size: 0.85rem;
+    }
+    
+    .card-body {
+        padding: 0.8rem !important;
+    }
+    
+    .filters-scroll-container .filter {
+        min-width: 55px;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .filters-scroll-container .filter i {
+        font-size: 0.8rem;
+    }
+    
+    .filters-scroll-container .filter p {
+        font-size: 0.6rem;
+    }
+    
+    .tax-toggle-mobile .form-check-label {
+        font-size: 0.6rem;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 991px) {
+    .filter-toggle-btn {
+        border-color: #fe424d;
+        color: #fe424d;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .filter-toggle-btn:hover {
+        background-color: #fe424d;
+        border-color: #fe424d;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(254, 66, 77, 0.3);
+    }
+    
+    .filter-toggle-btn:focus {
+        box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25);
+    }
+    
+    .collapse.show {
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    /* Better alignment for mobile filter section */
+    .d-lg-none.mb-3.mt-3 {
+        margin-top: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .tax-toggle-mobile {
+        display: flex;
+        align-items: center;
+        background-color: #f8f9fa;
+        padding: 0.5rem 0.75rem;
+        border-radius: 20px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .tax-toggle-mobile .form-check {
+        margin-bottom: 0;
+    }
+    
+    .tax-toggle-mobile .form-check-label {
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-left: 0.5rem;
+        white-space: nowrap;
+        color: #495057;
+    }
+    
+    .tax-toggle-mobile .form-check-input {
+        transform: scale(0.9);
+        margin-top: 0;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional responsive improvements */
+/* Better spacing for different screen sizes */
+@media (min-width: 1400px) {
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .row.g-2.g-md-3.g-lg-4 {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .row.g-2.g-md-3.g-lg-4 {
+        --bs-gutter-x: 1.25rem;
+        --bs-gutter-y: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .row.g-2.g-md-3.g-lg-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .row.g-2.g-md-3.g-lg-4 {
+        --bs-gutter-x: 0.75rem;
+        --bs-gutter-y: 0.75rem;
+    }
+}
+
+/* Single card on mobile - better spacing */
+@media (max-width: 575px) {
+    .container-fluid.px-2.px-md-3.px-lg-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .listing-card {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        border-radius: 1rem !important;
+    }
+    
+    .listing-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+    }
+}
+
+/* Desktop filter improvements */
+@media (min-width: 992px) {
+    .d-flex.align-items-center.justify-content-between {
+        align-items: center !important;
+    }
+    
+    .filters-desktop-container {
+        flex: 1;
+        margin-right: 2rem;
+    }
+    
+    .filters-desktop-container #filters {
+        align-items: center;
+        height: 3rem; /* Fixed height to match toggle */
+    }
+    
+    .filter {
+        height: 3rem; /* Fixed height for all filters */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .tax-toggle-desktop {
+        flex-shrink: 0;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        padding: 0.6rem 1rem;
+        border-radius: 1rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        height: 3rem; /* Fixed height to match filters */
+    }
+    
+    .tax-toggle-desktop .form-check {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .tax-toggle-desktop .form-check-label {
+        font-size: 0.85rem;
+        color: #495057;
+        margin-left: 0.5rem;
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+    
+    .tax-toggle-desktop .form-check-input {
+        margin-top: 0;
+        margin-right: 0.5rem;
+    }
+}
+
+/* Form Responsive Styles */
+/* Show page image responsiveness */
+.show-img {
+    height: 25vh;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    .show-img {
+        height: 30vh;
+    }
+}
+
+@media (min-width: 768px) {
+    .show-img {
+        height: 35vh;
+    }
+}
+
+@media (min-width: 992px) {
+    .show-img {
+        height: 40vh;
+    }
+}
+
+/* Form card responsiveness */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Button responsiveness */
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 575px) {
+    .btn-lg {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Form label improvements */
+.form-label.fw-semibold {
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* Review cards responsiveness */
+@media (max-width: 767px) {
+    .col-12.col-md-6 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Map responsiveness */
+#map {
+    height: 300px;
+    border-radius: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    #map {
+        height: 350px;
+    }
+}
+
+@media (min-width: 768px) {
+    #map {
+        height: 400px;
+    }
+}
+
+@media (min-width: 992px) {
+    #map {
+        height: 450px;
+    }
+}
+
+/* Mobile scroll buttons */
+.filters-scroll-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.scroll-btn:hover {
+    background-color: #fe424d;
+    color: white;
+    border-color: #fe424d;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+}
+
+.scroll-btn:disabled:hover {
+    background-color: white;
+    color: #6c757d;
+    border-color: #ddd;
+    transform: translateY(-50%);
+}
+
+.scroll-left {
+    left: -1.25rem;
+}
+
+.scroll-right {
+    right: -1.25rem;
+}
+
+.filters-scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5rem 0;
+    margin: 0 0.5rem;
+    flex: 1;
+}
+
+/* Hide scrollbar for webkit browsers */
+.filters-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.filters-scroll-container {
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Edge */
+.filters-scroll-container {
+    -ms-overflow-style: none;
+}
+
+.filters-scroll-container #filters {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+}
+
+.filters-scroll-container .filter {
+    min-width: 70px;
+    padding: 0.6rem 0.8rem;
+    flex-shrink: 0;
+}
+
+.filters-scroll-container .filter i {
+    font-size: 1.1rem;
+}
+
+.filters-scroll-container .filter p {
+    font-size: 0.75rem;
+}
