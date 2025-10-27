@@ -1,3 +1,4 @@
 .history/
 .env
 node_modules/
+PROJECT_ABSTRACT.md
