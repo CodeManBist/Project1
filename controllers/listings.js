@@ -39,7 +39,7 @@ module.exports.createListing = async(req, res, next) => {
         try {
             const q = encodeURIComponent(`${newListing.location}, ${newListing.country}`);
             const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${q}`, {
-                headers: { 'User-Agent': 'wanderlust-app/1.0' }
+                headers: { 'User-Agent': 'StayHive-app/1.0' }
             });
             const data = await resp.json();
             if (Array.isArray(data) && data[0]) {
@@ -87,7 +87,7 @@ module.exports.updateListing = async(req, res) => {
         try {
             const q = encodeURIComponent(`${listing.location}, ${listing.country}`);
             const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${q}`, {
-                headers: { 'User-Agent': 'wanderlust-app/1.0' }
+                headers: { 'User-Agent': 'StayHive-app/1.0' }
             });
             const data = await resp.json();
             if (Array.isArray(data) && data[0]) {

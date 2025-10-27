@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (listingData && listingData.location && listingData.country) {
         const q = encodeURIComponent(`${listingData.location}, ${listingData.country}`);
         fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${q}`, {
-            headers: { 'User-Agent': 'wanderlust-app/1.0' }
+            headers: { 'User-Agent': 'StayHive-app/1.0' }
         })
             .then(res => res.json())
             .then(data => {
